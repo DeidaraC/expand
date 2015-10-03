@@ -5,7 +5,7 @@
 static void print_usage(void);
 
 int main(int argc, const char *argv[]) {
-  size_t tab_width = 8;
+  int tab_width = 8;
   int c;
 
   if (argc < 2) {
@@ -16,13 +16,16 @@ int main(int argc, const char *argv[]) {
     switch (c) {
       case 't':
         tab_width = atoi(optarg);
+        if (tab_width <= 0) {
+          print_usage();
+        }
         break;
       default:
         print_usage();
     }
   }
 
-  printf("tab_width: %lu\n", tab_width);
+  printf("tab_width: %d\n", tab_width);
 
   for (size_t i = optind; i < argc; i++) {
     printf("%s\n", argv[i]);
@@ -32,6 +35,6 @@ int main(int argc, const char *argv[]) {
 }
 
 static void print_usage(void) {
-  fprintf(stderr, "Usage: expand [-t tablist] [file ...]\n");
+  fprintf(stderr, "Usage: expand [-t number] [file ...]\n");
   exit(EXIT_FAILURE);
 }
