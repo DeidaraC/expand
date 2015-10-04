@@ -6,7 +6,7 @@ static void print_usage(void);
 
 int main(int argc, const char *argv[]) {
   int tab_width = 8;
-  int c, i;
+  int c;
 
   if (argc < 2) {
     print_usage();
@@ -25,16 +25,14 @@ int main(int argc, const char *argv[]) {
     }
   }
 
-  printf("tab_width: %d\n", tab_width);
-
-  int ch;
   FILE *fp;
-  for (i = optind; i < argc; i++) {
+  for (size_t i = optind; i < argc; i++) {
     fp = fopen(argv[i], "r");
     if (fp == NULL) {
       fprintf(stderr, "can't open file %s\n", argv[i]);
       exit(EXIT_FAILURE);
     } else {
+      int ch;
       while ((ch = fgetc(fp)) != EOF) {
         if (ch == '\t') {
           for (size_t j = 0; j < tab_width; j++) {
