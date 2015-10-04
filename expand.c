@@ -14,14 +14,14 @@ int main(int argc, const char *argv[]) {
 
   while ((c = getopt(argc, argv, "t:")) != -1) {
     switch (c) {
-      case 't':
-        tab_width = atoi(optarg);
-        if (tab_width <= 0) {
-          print_usage();
-        }
-        break;
-      default:
+    case 't':
+      tab_width = atoi(optarg);
+      if (tab_width <= 0) {
         print_usage();
+      }
+      break;
+    default:
+      print_usage();
     }
   }
 
