@@ -1,5 +1,7 @@
 # expand
 
+[![Build Status](https://travis-ci.org/DeidaraC/expand.svg?branch=master)](https://travis-ci.org/DeidaraC/expand)
+
 the unix command `expand`, see `man expand`.
 
 ## Usage

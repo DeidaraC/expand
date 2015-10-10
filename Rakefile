@@ -1,4 +1,7 @@
 require "rake/testtask"
+require "rake/clean"
+
+CLOBBER.include('**/*.out')
 
 task :default => :test
 
