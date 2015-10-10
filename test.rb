@@ -27,6 +27,5 @@ class TestExpand < Minitest::Test
     output4 = `./expand.out test_text/text3.txt -t 6`
     assert_equal `cat test_text/expanded_6_text3.txt`, output3
     assert_equal `cat test_text/expanded_6_text3.txt`, output4
-
   end
 end
