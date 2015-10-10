@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
+#include <getopt.h>
 
 static void print_usage(void);
 
