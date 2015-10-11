@@ -15,4 +15,4 @@ expand [OPTION]... [FILE]...
 
 ## todo
 
-- [ ] support long options `--tabs=NUMBER`, use `getopt_long`.
+- [x] support long options `--tabs=NUMBER`, use `getopt_long`.
