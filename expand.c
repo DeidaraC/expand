@@ -5,14 +5,23 @@
 static void print_usage(void);
 
 int main(int argc, const char *argv[]) {
-  int tab_width = 8;
-  int c;
-
   if (argc < 2) {
     print_usage();
   }
 
-  while ((c = getopt(argc, argv, "t:")) != -1) {
+  struct option long_options[] = {{"tabs", required_argument, 0, 't'},
+                                  {0, 0, 0, 0}};
+
+  int tab_width = 8;
+  int option_index = 0;
+  int c;
+
+  while (1) {
+    c = getopt_long(argc, argv, "t:", long_options, &option_index);
+    if (c == -1) {
+      break;
+    }
+
     switch (c) {
     case 't':
       tab_width = atoi(optarg);
