@@ -24,7 +24,7 @@ class TestExpand < Minitest::Test
     assert_equal "", stderr_str
   end
 
-  def test_option_t_basic
+  def test_option_t
     stdout_str, stderr_str, status = Open3.capture3("./expand.out -t 6 test_text/text1.txt")
     assert_equal IO.read("test_text/expanded_6_text1.txt"), stdout_str
     assert_equal 0, status.exitstatus
