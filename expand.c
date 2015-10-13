@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <getopt.h>
 
-static void print_usage(void);
+static void usage(void);
 
 int main(int argc, const char *argv[]) {
   if (argc < 2) {
-    print_usage();
+    usage();
   }
 
   struct option long_options[] = {{"tabs", required_argument, 0, 't'},
@@ -26,11 +26,11 @@ int main(int argc, const char *argv[]) {
     case 't':
       tab_width = atoi(optarg);
       if (tab_width <= 0) {
-        print_usage();
+        usage();
       }
       break;
     default:
-      print_usage();
+      usage();
     }
   }
 
@@ -58,7 +58,7 @@ int main(int argc, const char *argv[]) {
   return 0;
 }
 
-static void print_usage(void) {
+static void usage(void) {
   fprintf(stderr, "Usage: expand [-t number] [file ...]\n");
   exit(EXIT_FAILURE);
 }
