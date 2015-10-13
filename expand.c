@@ -16,12 +16,8 @@ int main(int argc, const char *argv[]) {
   int option_index = 0;
   int c;
 
-  while (1) {
-    c = getopt_long(argc, argv, "t:", long_options, &option_index);
-    if (c == -1) {
-      break;
-    }
-
+  while ((c = getopt_long(argc, argv, "t:", long_options, &option_index)) !=
+         -1) {
     switch (c) {
     case 't':
       tab_width = atoi(optarg);
